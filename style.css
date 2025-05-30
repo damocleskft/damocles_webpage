@@ -1,0 +1,689 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    background-color: #f8f9fa;
+    color: #222;
+    margin-top: 100px;
+}
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none;
+}
+
+.navbar-toggler-icon-custom {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Elforgatás amikor a menü nyitva van */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon-custom {
+    transform: rotate(90deg);
+}
+
+/* Hover effekt (opcionális) */
+.navbar-toggler:hover .navbar-toggler-icon-custom {
+    opacity: 0.8;
+}
+
+.nav-item {
+    transition: 0.1s;
+}
+
+.nav-item:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.041);
+    background-color: #ffffff09;
+}
+
+.btn-sm{
+    border-radius: 10px;
+    padding: 4px;
+    font-size: 15px;
+}
+
+
+section[id] {
+    scroll-margin-top: 90px;
+}
+
+.brand-red {
+    color: #e31c18;
+}
+
+.btn-brand {
+    background-color: #e31c18;
+    color: #fff;
+    border: none;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+    background-color: #b71c1c;
+    color: #fff;
+}
+
+.hero-bg {
+    background-color: #F6F6F6;
+    background-color: #D9D9D9;
+    background-color: #EDEDED;
+    background-color: #F5F5F5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23e6e6e6' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23d7d7d7' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23c8c8c8' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23b9b9b9' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23AAAAAA' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.hero-picture {
+    filter: drop-shadow(15px 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.hero-title {
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    max-height: 60px;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+.laptop-container {
+    position: relative;
+    display: inline-block;
+    transition: 1s;
+}
+
+
+.laptop-screen-overlay {
+    position: absolute;
+    top: 30%;
+    left: 38.5%;
+    width: 64%;
+    height: 40%;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    transform: skew(0deg, 21.3deg);
+    pointer-events: none;
+}
+
+.screen-text {
+    color: #fc2320;
+    font-family: 'Montserrat', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+    padding: 15px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen-text .typing-char {
+    opacity: 0;
+    animation: typeIn 0.1s ease-in-out forwards;
+}
+
+@keyframes typeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.screen-text .cursor {
+    display: inline-block;
+    background-color: #e31c18;
+    width: 2px;
+    height: 1.2em;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Responsive beállítások */
+@media (max-width: 1399px) {
+    .screen-text {
+        font-size: 0.8rem;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .screen-text {
+        font-size: 0.68rem;
+        padding: 10px;
+    }
+}
+
+
+/* DAMOCLES logó szöveges stílusa */
+.damocles-logo-text {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* Dinamikus gomb stílusok */
+.dynamic-btn {
+    background-color: #e31c18;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(255, 76, 76, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.dynamic-btn:hover {
+    background-color: #fa312d;
+    color: white;
+    box-shadow: 0 6px 12px rgba(224, 67, 67, 0.6);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.dynamic-btn:active {
+    background-color: #b73737;
+    box-shadow: 0 2px 4px rgba(183, 55, 55, 0.8);
+    transform: translateY(0) scale(0.98);
+}
+
+.dynamic-btn:focus {
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 76, 76, 0.5);
+}
+
+/* Mobil nézet - teljes szélességű gomb */
+@media (max-width: 991.98px) {
+    .dynamic-btn {
+        display: block;
+        width: 100% !important;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .hero-title {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .damocles-logo-text {
+        margin-bottom: 0.5rem;
+        margin-right: 0 !important;
+    }
+}
+
+/* Reszponzív címsor */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .damocles-logo-text {
+        font-size: 1.5rem;
+    }
+}
+
+/* Service card alapértelmezett stílusok */
+.service-card {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    box-shadow: 0 0px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Service card hover effektusok */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Service card expanded állapot */
+.service-card.expanded {
+    transform: scale(1.02);
+    z-index: 10;
+    height: auto;
+}
+
+/* Service icon alapértelmezett és animációk */
+.service-icon {
+    transition: transform 0.2s ease-out;
+}
+
+.service-icon i {
+    transition: color 0.2s ease, transform 0.3s ease;
+}
+
+.service-card:hover .service-icon i {
+    color: #e31c18 !important;
+    transform: scale(1.1);
+}
+
+.service-card.expanded .service-icon {
+    transform: scale(0.8);
+}
+
+/* Service details alapértelmezett és expanded állapot */
+.service-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card.expanded .service-details {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease-out 0.2s,
+                transform 0.4s ease-out 0.2s;
+
+                        
+}
+
+/* Details content */
+.details-content {
+    padding-top: 20px;
+    border-top: 1px solid rgba(108, 117, 125, 0.2);
+    margin-top: 15px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease-out;
+}
+
+.service-card.expanded .details-content {
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+/* Staggered animation for list items */
+.service-details ul li {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease-out;
+}
+
+.service-card.expanded .service-details ul li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Grid beállítások */
+.row.g-4 {
+    transition: all 0.3s ease-out;
+}
+
+#services .row.g-4 {
+    align-items: start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-card.expanded {
+        transform: scale(1.01);
+    }
+}
+
+
+.why-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 1rem;
+}
+
+.why-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(227, 28, 24, 0.10), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+}
+
+.why-card img {
+    filter: grayscale(1) brightness(0.8);
+    transition: filter 0.2s;
+}
+
+.why-card:hover img {
+    filter: none;
+}
+
+.stat-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(227, 28, 24, 0.09), 0 1.5px 4px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card img {
+    filter: grayscale(1) brightness(0.85);
+    transition: filter 0.2s;
+}
+
+.stat-card:hover img {
+    filter: none;
+}
+
+.display-5 {
+    font-size: 2.5rem;
+}
+
+.star-rating {
+    font-size: 1.5rem;
+    color: #e31c18;
+    letter-spacing: 0.1em;
+    display: inline-block;
+}
+
+/* Vélemények interaktív slider stílusok */
+
+.testimonials-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -15px;
+    padding: 20px 0;
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
+}
+
+
+.testimonials-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.testimonial-card {
+    flex: 0 0 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1) !important;
+    z-index: 10;
+    position: relative;
+}
+
+.testimonial-card blockquote {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Fade overlay-k */
+/* Fade overlay-k CSS mask-kel */
+/* Fade overlay-k CSS mask-kel */
+.fade-overlay {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.fade-left {
+    left: 0;
+    background: rgba(248, 249, 250, 0.8);
+    mask-image: linear-gradient(to right,
+            black 0%,
+            black 20%,
+            rgba(0, 0, 0, 0.8) 40%,
+            rgba(0, 0, 0, 0.4) 70%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to right,
+            black 0%,
+            black 20%,
+            rgba(0, 0, 0, 0.8) 40%,
+            rgba(0, 0, 0, 0.4) 70%,
+            transparent 100%);
+}
+
+.fade-right {
+    right: 0;
+    background: rgba(248, 249, 250, 0.8);
+    mask-image: linear-gradient(to left,
+            black 0%,
+            black 20%,
+            rgba(0, 0, 0, 0.8) 40%,
+            rgba(0, 0, 0, 0.4) 70%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to left,
+            black 0%,
+            black 20%,
+            rgba(0, 0, 0, 0.8) 40%,
+            rgba(0, 0, 0, 0.4) 70%,
+            transparent 100%);
+}
+
+/* Responsive beállítások */
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex: 0 0 280px;
+        height: 220px;
+    }
+
+    .fade-overlay {
+        width: 100px;
+    }
+}
+
+
+
+blockquote {
+    quotes: "“" "”" "“" "”";
+}
+
+blockquote:before {
+    content: open-quote;
+    color: #e31c18;
+    font-size: 2rem;
+    vertical-align: -0.4em;
+    margin-right: 0.1em;
+}
+
+.team-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 1rem;
+}
+
+.team-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(227, 28, 24, 0.08), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+}
+
+.team-avatar {
+    object-fit: cover;
+    border: 3px solid #ddddddb2;
+    background: #fff;
+}
+
+.team-photo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(227, 28, 24, 0.08), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+}
+
+/* GYIK hover effektusok */
+.accordion-item {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.accordion-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Kérdés hover effektus */
+.accordion-item h5 {
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.accordion-item:hover h5 {
+    color: #e31c18;
+}
+
+/* Ikon hover animáció */
+.accordion-item .fas {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-item:hover .fas {
+    transform: rotate(180deg);
+    color: #e31c18;
+}
+
+/* Collapse tartalom hover effektus */
+.accordion-item .collapse {
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover .collapse.show {
+    background-color: rgba(214, 214, 214, 0.05);
+    border-left: 3px solid #e31b18d5;
+    padding-left: 1rem;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ffffff;
+    background-color: #e31b18d5;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(227, 28, 24, 0.15);
+}
+
+
+.contact-form input,
+.contact-form textarea {
+    border-radius: 0.5rem;
+    border: 1.5px solid #e4e4e4;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #e31c18;
+    box-shadow: 0 0 0 0.15rem rgba(227, 28, 24, 0.10);
+}
+
+.contact-info h5 {
+    color: #e31c18;
+}
+
+.contact-info a:hover {
+    color: #e31c18;
+}
+
+.counter {
+    font-size: 40;
+}
+
+.references {
+    background-color: #dddddd;
+}
+
+.glass {
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.glass-light {
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    background: rgba(228, 228, 228, 0.6) !important;
+}
+
+.glass-red {
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    background: rgba(255, 0, 0, 0.6) !important;
+}
+
+.glass-dark {
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.glass-gray {
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    background: rgba(184, 184, 184, 0.322) !important;
+}
+
+.dropdown-item :hover {
+    background: rgba(0, 0, 0, 0);
+}
+
+.damocles-text {
+    width: 73%;
+}

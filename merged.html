@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Damocles – information technology</title>
+    <meta name="description"
+        content="Damocles Kft. – Informatikai üzemeltetés, tanácsadás, hardver- és szoftverkereskedelem. Gyors, precíz IT megoldások cégeknek.">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Saját stílusok -->
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            background-color: #f8f9fa;
+            color: #222;
+            margin-top: 100px;
+        }
+
+        .navbar-toggler {
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0;
+            margin-right: 10px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+            outline: none;
+        }
+
+        .navbar-toggler-icon-custom {
+            font-size: 1.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Elforgatás amikor a menü nyitva van */
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon-custom {
+            transform: rotate(90deg);
+        }
+
+        /* Hover effekt (opcionális) */
+        .navbar-toggler:hover .navbar-toggler-icon-custom {
+            opacity: 0.8;
+        }
+
+        .nav-item {
+            transition: 0.1s;
+        }
+
+        .nav-item:hover {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.041);
+            background-color: #ffffff09;
+        }
+
+        .btn-sm {
+            border-radius: 10px;
+            padding: 4px;
+            font-size: 15px;
+        }
+
+
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+
+        .brand-red {
+            color: #e31c18;
+        }
+
+        .btn-brand {
+            background-color: #e31c18;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-brand:hover,
+        .btn-brand:focus {
+            background-color: #b71c1c;
+            color: #fff;
+        }
+
+        .hero-bg {
+            background-color: #F6F6F6;
+            background-color: #D9D9D9;
+            background-color: #EDEDED;
+            background-color: #F5F5F5;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23e6e6e6' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23d7d7d7' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23c8c8c8' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23b9b9b9' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23AAAAAA' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .hero-picture {
+            filter: drop-shadow(15px 10px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-title {
+            font-size: 2.7rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            max-height: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        .laptop-container {
+            position: relative;
+            display: inline-block;
+            transition: 1s;
+        }
+
+
+        .laptop-screen-overlay {
+            position: absolute;
+            top: 30%;
+            left: 38.5%;
+            width: 64%;
+            height: 40%;
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            transform: skew(0deg, 21.3deg);
+            pointer-events: none;
+        }
+
+        .screen-text {
+            color: #fc2320;
+            font-family: 'Montserrat', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+            padding: 15px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screen-text .typing-char {
+            opacity: 0;
+            animation: typeIn 0.1s ease-in-out forwards;
+        }
+
+        @keyframes typeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .screen-text .cursor {
+            display: inline-block;
+            background-color: #e31c18;
+            width: 2px;
+            height: 1.2em;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Responsive beállítások */
+        @media (max-width: 1399px) {
+            .screen-text {
+                font-size: 0.8rem;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .screen-text {
+                font-size: 0.68rem;
+                padding: 10px;
+            }
+        }
+
+
+        /* DAMOCLES logó szöveges stílusa */
+        .damocles-logo-text {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        /* Dinamikus gomb stílusok */
+        .dynamic-btn {
+            background-color: #e31c18;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(255, 76, 76, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dynamic-btn:hover {
+            background-color: #fa312d;
+            color: white;
+            box-shadow: 0 6px 12px rgba(224, 67, 67, 0.6);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .dynamic-btn:active {
+            background-color: #b73737;
+            box-shadow: 0 2px 4px rgba(183, 55, 55, 0.8);
+            transform: translateY(0) scale(0.98);
+        }
+
+        .dynamic-btn:focus {
+            color: white;
+            box-shadow: 0 0 0 0.2rem rgba(255, 76, 76, 0.5);
+        }
+
+        /* Mobil nézet - teljes szélességű gomb */
+        @media (max-width: 991.98px) {
+            .dynamic-btn {
+                display: block;
+                width: 100% !important;
+                text-align: center;
+                margin-top: 1rem;
+            }
+
+            .hero-title {
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
+
+            .damocles-logo-text {
+                margin-bottom: 0.5rem;
+                margin-right: 0 !important;
+            }
+        }
+
+        /* Reszponzív címsor */
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .damocles-logo-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Service card alapértelmezett stílusok */
+        .service-card {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            position: relative;
+            height: auto;
+            box-shadow: 0 0px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        /* Service card hover effektusok */
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+        }
+
+        /* Service card expanded állapot */
+        .service-card.expanded {
+            transform: scale(1.02);
+            z-index: 10;
+            height: auto;
+        }
+
+        /* Service icon alapértelmezett és animációk */
+        .service-icon {
+            transition: transform 0.2s ease-out;
+        }
+
+        .service-icon i {
+            transition: color 0.2s ease, transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            color: #e31c18 !important;
+            transform: scale(1.1);
+        }
+
+        .service-card.expanded .service-icon {
+            transform: scale(0.8);
+        }
+
+        /* Service details alapértelmezett és expanded állapot */
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .service-card.expanded .service-details {
+            max-height: 400px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease-out 0.2s,
+                transform 0.4s ease-out 0.2s;
+
+
+        }
+
+        /* Details content */
+        .details-content {
+            padding-top: 20px;
+            border-top: 1px solid rgba(108, 117, 125, 0.2);
+            margin-top: 15px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-out;
+        }
+
+        .service-card.expanded .details-content {
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        /* Staggered animation for list items */
+        .service-details ul li {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease-out;
+        }
+
+        .service-card.expanded .service-details ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Grid beállítások */
+        .row.g-4 {
+            transition: all 0.3s ease-out;
+        }
+
+        #services .row.g-4 {
+            align-items: start;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .service-card.expanded {
+                transform: scale(1.01);
+            }
+        }
+
+
+        .why-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 1rem;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(227, 28, 24, 0.10), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+        }
+
+        .why-card img {
+            filter: grayscale(1) brightness(0.8);
+            transition: filter 0.2s;
+        }
+
+        .why-card:hover img {
+            filter: none;
+        }
+
+        .stat-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(227, 28, 24, 0.09), 0 1.5px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .stat-card img {
+            filter: grayscale(1) brightness(0.85);
+            transition: filter 0.2s;
+        }
+
+        .stat-card:hover img {
+            filter: none;
+        }
+
+        .display-5 {
+            font-size: 2.5rem;
+        }
+
+        .star-rating {
+            font-size: 1.5rem;
+            color: #e31c18;
+            letter-spacing: 0.1em;
+            display: inline-block;
+        }
+
+        /* Vélemények interaktív slider stílusok */
+
+        .testimonials-container {
+            position: relative;
+            overflow: hidden;
+            margin: 0 -15px;
+            padding: 20px 0;
+            mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    black 10%,
+                    black 90%,
+                    transparent 100%);
+            -webkit-mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    black 10%,
+                    black 90%,
+                    transparent 100%);
+        }
+
+
+        .testimonials-track {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+
+        .testimonial-card {
+            flex: 0 0 350px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1) !important;
+            z-index: 10;
+            position: relative;
+        }
+
+        .testimonial-card blockquote {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Fade overlay-k */
+        /* Fade overlay-k CSS mask-kel */
+        /* Fade overlay-k CSS mask-kel */
+        .fade-overlay {
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .fade-left {
+            left: 0;
+            background: rgba(248, 249, 250, 0.8);
+            mask-image: linear-gradient(to right,
+                    black 0%,
+                    black 20%,
+                    rgba(0, 0, 0, 0.8) 40%,
+                    rgba(0, 0, 0, 0.4) 70%,
+                    transparent 100%);
+            -webkit-mask-image: linear-gradient(to right,
+                    black 0%,
+                    black 20%,
+                    rgba(0, 0, 0, 0.8) 40%,
+                    rgba(0, 0, 0, 0.4) 70%,
+                    transparent 100%);
+        }
+
+        .fade-right {
+            right: 0;
+            background: rgba(248, 249, 250, 0.8);
+            mask-image: linear-gradient(to left,
+                    black 0%,
+                    black 20%,
+                    rgba(0, 0, 0, 0.8) 40%,
+                    rgba(0, 0, 0, 0.4) 70%,
+                    transparent 100%);
+            -webkit-mask-image: linear-gradient(to left,
+                    black 0%,
+                    black 20%,
+                    rgba(0, 0, 0, 0.8) 40%,
+                    rgba(0, 0, 0, 0.4) 70%,
+                    transparent 100%);
+        }
+
+        /* Responsive beállítások */
+        @media (max-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 280px;
+                height: 220px;
+            }
+
+            .fade-overlay {
+                width: 100px;
+            }
+        }
+
+
+
+        blockquote {
+            quotes: "“" "”" "“" "”";
+        }
+
+        blockquote:before {
+            content: open-quote;
+            color: #e31c18;
+            font-size: 2rem;
+            vertical-align: -0.4em;
+            margin-right: 0.1em;
+        }
+
+        .team-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 1rem;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(227, 28, 24, 0.08), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+        }
+
+        .team-avatar {
+            object-fit: cover;
+            border: 3px solid #ddddddb2;
+            background: #fff;
+        }
+
+        .team-photo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(227, 28, 24, 0.08), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+        }
+
+        /* GYIK hover effektusok */
+        .accordion-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Kérdés hover effektus */
+        .accordion-item h5 {
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .accordion-item:hover h5 {
+            color: #e31c18;
+        }
+
+        /* Ikon hover animáció */
+        .accordion-item .fas {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .accordion-item:hover .fas {
+            transform: rotate(180deg);
+            color: #e31c18;
+        }
+
+        /* Collapse tartalom hover effektus */
+        .accordion-item .collapse {
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover .collapse.show {
+            background-color: rgba(214, 214, 214, 0.05);
+            border-left: 3px solid #e31b18d5;
+            padding-left: 1rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #ffffff;
+            background-color: #e31b18d5;
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.2rem rgba(227, 28, 24, 0.15);
+        }
+
+
+        .contact-form input,
+        .contact-form textarea {
+            border-radius: 0.5rem;
+            border: 1.5px solid #e4e4e4;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #e31c18;
+            box-shadow: 0 0 0 0.15rem rgba(227, 28, 24, 0.10);
+        }
+
+        .contact-info h5 {
+            color: #e31c18;
+        }
+
+        .contact-info a:hover {
+            color: #e31c18;
+        }
+
+        .counter {
+            font-size: 40;
+        }
+
+        .references {
+            background-color: #dddddd;
+        }
+
+        .glass {
+            backdrop-filter: blur(3px) !important;
+            -webkit-backdrop-filter: blur(3px) !important;
+            background: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .glass-light {
+            backdrop-filter: blur(3px) !important;
+            -webkit-backdrop-filter: blur(3px) !important;
+            background: rgba(228, 228, 228, 0.6) !important;
+        }
+
+        .glass-red {
+            backdrop-filter: blur(3px) !important;
+            -webkit-backdrop-filter: blur(3px) !important;
+            background: rgba(255, 0, 0, 0.6) !important;
+        }
+
+        .glass-dark {
+            backdrop-filter: blur(3px) !important;
+            -webkit-backdrop-filter: blur(3px) !important;
+            background: rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .glass-gray {
+            backdrop-filter: blur(3px) !important;
+            -webkit-backdrop-filter: blur(3px) !important;
+            background: rgba(184, 184, 184, 0.322) !important;
+        }
+
+        .dropdown-item :hover {
+            background: rgba(0, 0, 0, 0);
+        }
+
+        .damocles-text {
+            width: 73%;
+        }
+    </style>
+</head>
+
+<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg glass-dark">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="./damocles-light.svg" alt="Damocles logó" class="logo m-1 navbar-brand">
+        </a>
+
+        <!-- Hamburger menü mobil nézethez -->
+        <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots-vertical navbar-toggler-icon-custom"></i>
+        </button>
+
+        <!-- Navigációs menü -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item btn-sm">
+                    <a class="nav-link text-white" href="#services">Szolgáltatások</a>
+                </li>
+                <li class="nav-item btn-sm">
+                    <a class="nav-link text-white" href="#why-us">Miért mi?</a>
+                </li>
+                <li class="nav-item btn-sm">
+                    <a class="nav-link text-white" href="#team">Csapat</a>
+                </li>
+                <li class="nav-item btn-sm">
+                    <a class="nav-link text-white" href="#faq">GYIK</a>
+                </li>
+                <li class="nav-item btn-sm">
+                    <a class="nav-link text-white" href="#contact">Kapcsolat</a>
+                </li>
+                <!-- Legördülő menü meglévő ügyfeleknek -->
+                <li class="nav-item dropdown btn-sm">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Meglévő ügyfeleinknek
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="https://get.teamviewer.com/damocles" target="_blank">
+                                <i class="fas fa-desktop me-2"></i>TeamViewer
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="https://damocles.hu/jira" target="_blank">
+                                <i class="fas fa-ticket-alt me-2"></i>Jira
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <!-- Hero szekció -->
+    <header class="hero-bg">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+
+                    <!-- Főcím -->
+                    <h1 class="hero-title d-flex align-items-center flex-wrap">
+                        <span class="damocles-logo-text me-3"><img src="./damocles_logo_dark_svg.svg" alt="Damocles"
+                                class="img-fluid damocles-text"></span>
+                        <span class="brand-red">information technology</span>
+                    </h1>
+
+                    <!-- Szlogen -->
+                    <p class="hero-subtitle">
+                        <span class="text-muted">IT, ami működik. Egy csapat, akire számíthatsz.</span>
+                    </p>
+
+                    <!-- Rövid bemutatkozás -->
+                    <p class="mb-4">
+                        Teljes körű informatikai üzemeltetés és tanácsadás cégeknek – a napi problémáktól a komplex
+                        rendszerekig. Gyors, precíz és barátságos csapatunk minden IT-kihívásra megoldást talál.
+                    </p>
+
+                    <!-- CTA gomb -->
+                    <a href="#contact" class="btn btn-brand btn-lg w-100 w-lg-auto px-4 dynamic-btn">Dolgozzunk
+                        együtt!
+                    </a>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="laptop-container">
+                        <img src="./laptop3.png" alt="IT üzemeltetés illusztráció" class="img-fluid hero-picture">
+                        <div class="laptop-screen-overlay">
+                            <div class="screen-text" id="screenText"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Szolgáltatások szekció -->
+        <section id="services" class="py-5 glass">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Szolgáltatásaink</h2>
+                    <p class="lead text-muted">IT üzemeltetés, tanácsadás, hardver és szoftver kereskedelem – mindez egy
+                        helyen, a Damocles-nél.
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <!-- Szerver üzemeltetés -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 service-card glass" data-service="server">
+                            <div class="card-body text-center">
+                                <!-- Eredeti tartalom -->
+                                <div class="service-original-content">
+                                    <div class="service-icon mb-3">
+                                        <i class="bi bi-server" style="font-size: 4rem; color: #6c757d;"></i>
+                                    </div>
+                                    <h5 class="card-title fw-semibold">Szerver üzemeltetés</h5>
+                                    <p class="card-text text-muted">Biztonság, stabilitás</p>
+                                </div>
+
+                                <!-- Részletes tartalom -->
+                                <div class="service-details">
+                                    <div class="details-content">
+                                        <p class="text-start mb-3">
+                                            Szerver üzemeltetési szolgáltatásaink garantálják
+                                            vállalkozása IT infrastruktúrájának folyamatos és megbízható működését.
+                                        </p>
+                                        <ul class="text-start small">
+                                            <li>Monitorozás és felügyelet</li>
+                                            <li>Rendszeres biztonsági mentések</li>
+                                            <li>Teljesítmény optimalizálás</li>
+                                            <li>Proaktív karbantartás</li>
+                                            <li>Gyors hibaelhárítás</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hálózat felügyelet -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 service-card glass" data-service="network">
+                            <div class="card-body text-center">
+                                <div class="service-original-content">
+                                    <div class="service-icon mb-3">
+                                        <i class="bi bi-diagram-3" style="font-size: 4rem; color: #6c757d;"></i>
+                                    </div>
+                                    <h5 class="card-title fw-semibold">Hálózat felügyelet</h5>
+                                    <p class="card-text text-muted">Gyors reagálás</p>
+                                </div>
+
+                                <div class="service-details">
+                                    <div class="details-content">
+                                        <p class="text-start mb-3">
+                                            Komplex hálózati megoldásaink biztosítják a zavartalan adatforgalmat és a
+                                            biztonságos kapcsolatokat.
+                                        </p>
+                                        <ul class="text-start small">
+                                            <li>Hálózati topológia tervezés</li>
+                                            <li>Forgalom monitorozás</li>
+                                            <li>Biztonsági audit</li>
+                                            <li>VPN konfigurálás</li>
+                                            <li>Tűzfal beállítás</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IT támogatás -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 service-card glass" data-service="support">
+                            <div class="card-body text-center">
+                                <div class="service-original-content">
+                                    <div class="service-icon mb-3">
+                                        <i class="bi bi-headset" style="font-size: 4rem; color: #6c757d;"></i>
+                                    </div>
+                                    <h5 class="card-title fw-semibold">IT támogatás</h5>
+                                    <p class="card-text text-muted">Távoli segítség</p>
+                                </div>
+
+                                <div class="service-details">
+                                    <div class="details-content">
+                                        <p class="text-start mb-3">
+                                            Szakértő IT támogatási csapatunk mindig rendelkezésre áll, hogy megoldja
+                                            technikai problémáit.
+                                        </p>
+                                        <ul class="text-start small">
+                                            <li>Távoli asztali támogatás</li>
+                                            <li>Telefonos segítségnyújtás</li>
+                                            <li>Helyszíni kiszállás</li>
+                                            <li>Szoftver telepítés</li>
+                                            <li>Felhasználói képzés</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hardver beszerzés -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 service-card glass" data-service="hardware">
+                            <div class="card-body text-center">
+                                <div class="service-original-content">
+                                    <div class="service-icon mb-3">
+                                        <i class="bi bi-cpu" style="font-size: 4rem; color: #6c757d;"></i>
+                                    </div>
+                                    <h5 class="card-title fw-semibold">Hardver beszerzés</h5>
+                                    <p class="card-text text-muted">Dell, Lenovo, Fortinet</p>
+                                </div>
+
+                                <div class="service-details">
+                                    <div class="details-content">
+                                        <p class="text-start mb-3">
+                                            Partneri kapcsolatainknak köszönhetően kedvező áron szerezzük be a
+                                            legmodernebb hardver eszközöket.
+                                        </p>
+                                        <ul class="text-start small">
+                                            <li>Dell szerverek és munkaállomások</li>
+                                            <li>Lenovo laptopok és PC-k</li>
+                                            <li>Fortinet hálózati eszközök</li>
+                                            <li>Egyedi konfiguráció</li>
+                                            <li>Gyártói garancia és támogatás</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Szoftver beszerzés -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 service-card glass" data-service="software">
+                            <div class="card-body text-center">
+                                <div class="service-original-content">
+                                    <div class="service-icon mb-3">
+                                        <i class="bi bi-window-stack" style="font-size: 4rem; color: #6c757d;"></i>
+                                    </div>
+                                    <h5 class="card-title fw-semibold">Szoftver beszerzés</h5>
+                                    <p class="card-text text-muted">Microsoft, Linux</p>
+                                </div>
+
+                                <div class="service-details">
+                                    <div class="details-content">
+                                        <p class="text-start mb-3">
+                                            Licencelt szoftverek beszerzése és telepítése, hogy vállalkozása mindig a
+                                            legfrissebb és legbiztonságosabb megoldásokat használja.
+                                        </p>
+                                        <ul class="text-start small">
+                                            <li>Microsoft Office és Windows licencek</li>
+                                            <li>Antivírus és biztonsági szoftverek</li>
+                                            <li>Szoftverkövetés és folyamatos frissítések</li>
+                                            <li>Szakmai alkalmazások</li>
+                                            <li>Licenc menedzsment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Felhő megoldások -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 service-card glass" data-service="cloud">
+                            <div class="card-body text-center">
+                                <div class="service-original-content">
+                                    <div class="service-icon mb-3">
+                                        <i class="bi bi-cloud-check" style="font-size: 4rem; color: #6c757d;"></i>
+                                    </div>
+                                    <h5 class="card-title fw-semibold">Felhő megoldások</h5>
+                                    <p class="card-text text-muted">AWS, Azure</p>
+                                </div>
+
+                                <div class="service-details">
+                                    <div class="details-content">
+                                        <p class="text-start mb-3">
+                                            Modern felhőalapú megoldásokkal segítjük cégét a digitális átállásban és a
+                                            skálázható infrastruktúra kiépítésében.
+                                        </p>
+                                        <ul class="text-start small">
+                                            <li>AWS és Azure migráció</li>
+                                            <li>Felhő architektúra tervezés</li>
+                                            <li>Költségoptimalizálás</li>
+                                            <li>Backup és disaster recovery</li>
+                                            <li>Hibrid felhő megoldások</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Miért minket válassz? szekció -->
+        <section id="why-us" class="py-5 glass-dark">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3 text-light">Miért minket válassz?</h2>
+                    <p class="lead text-white">Mert a Damocles-nél nem csak a technológiához értünk – a partnereinkhez
+                        is.
+                    </p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card why-card h-100 border-0 why-card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="./icon-communication.svg" alt="Kommunikáció" width="40" height="40"
+                                    class="mb-3">
+                                <h6 class="fw-semibold mb-2">Kiváló kommunikáció</h6>
+                                <p class="text-muted small mb-0">Érthetően, átláthatóan, ügyfélbarát módon tartjuk a
+                                    kapcsolatot.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card why-card h-100 border-0 why-card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="./icon-expert.svg" alt="Szakértelem" width="40" height="40" class="mb-3">
+                                <h6 class="fw-semibold mb-2">Több évtizedes tapasztalat</h6>
+                                <p class="text-muted small mb-0">Sokféle cég, sokféle rendszer, rengeteg megoldott
+                                    kihívás.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card h-100 border-0 why-card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="./icon-solution.svg" alt="Megoldásközpontúság" width="40" height="40"
+                                    class="mb-3">
+                                <h6 class="fw-semibold mb-2">Megoldásközpontú hozzáállás</h6>
+                                <p class="text-muted small mb-0">Nem magyarázkodunk – megoldjuk, amit kell, kreatívan és
+                                    hatékonyan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card why-card h-100 border-0 why-card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="./icon-trust.svg" alt="Bizalom" width="40" height="40" class="mb-3">
+                                <h6 class="fw-semibold mb-2">Ügyfélközpontúság</h6>
+                                <p class="text-muted small mb-0">Nálunk tényleg fontos vagy – minden ügyfélnek személyes
+                                    figyelmet adunk.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Referenciák / Eredményeink szekció -->
+        <section id="references" class="py-5 references glass-gray">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Eredményeink számokban</h2>
+                    <p class="lead text-muted">A Damocles mögött valódi teljesítmény, hosszú távú ügyfélkapcsolatok és
+                        rengeteg sikeres megoldás áll.</p>
+                </div>
+                <div class="row justify-content-center g-4">
+                    <div class="col-md-4">
+                        <div class="stat-card text-center bg-white rounded shadow-sm p-4 h-100">
+                            <div class="mb-3">
+                                <img src="./icon-company.svg" alt="Céges partnerek" width="48" height="48">
+                            </div>
+                            <div class="display-5 fw-bold brand-red"><span class="counter">15</span>+</div>
+                            <div class="h6 fw-semibold mb-1">Partner cég</div>
+                            <div class="text-muted small">Akik hosszú távon bíznak bennünk</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card text-center bg-white rounded shadow-sm p-4 h-100">
+                            <div class="mb-3">
+                                <img src="./icon-ticket.svg" alt="Megoldott hibajegyek" width="48" height="48">
+                            </div>
+                            <div class="display-5 fw-bold brand-red"><span class="counter">11</span>&nbsp;<span
+                                    class="counter">500</span>+</div>
+                            <div class="h6 fw-semibold mb-1">Megoldott hibajegy</div>
+                            <div class="text-muted small">Ennyi problémát oldottunk már meg</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card text-center bg-white rounded shadow-sm p-4 h-100">
+                            <div class="mb-3">
+                                <img src="./icon-user.svg" alt="Kiszolgált ügyfelek" width="48" height="48">
+                            </div>
+                            <div class="display-5 fw-bold brand-red"><span class="counter">1000</span>+</div>
+                            <div class="h6 fw-semibold mb-1">Kiszolgált felhasználó</div>
+                            <div class="text-muted small">Akik már megtapasztalták a Damocles minőséget</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CTA gomb -->
+                <div class="text-center mt-4">
+                    <a href="#contact" class="btn btn-brand btn-lg px-4 dynamic-btn w-100 w-lg-auto">Lépj velünk
+                        kapcsolatba!</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Csapat / Management szekció -->
+        <section id="team" class="py-5 glass">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Csapatunk</h2>
+                    <p class="lead text-muted">Szakértelem, elkötelezettség, jó hangulat – ezek teszik a Damocles
+                        csapatát igazán erőssé.</p>
+                </div>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8">
+                        <img src="./team-photo.jpg" alt="A Damocles csapat fényképe"
+                            class="img-fluid rounded shadow team-photo mx-auto d-block">
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center">
+
+                    <div class="col-md-3">
+                        <div class="team-card bg-light rounded shadow-sm p-4 h-100 text-center">
+                            <img src="./team-palinkas.jpg" alt="Pálinkás Péter" width="80" height="80"
+                                class="rounded-circle mb-3 team-avatar">
+                            <h6 class="fw-semibold mb-1">Pálinkás Péter</h6>
+                            <div class="text-muted mb-2 small">Senior rendszerüzemeltető</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="team-card bg-light rounded shadow-sm p-4 h-100 text-center">
+                            <img src="./team-tavaszi.jpg" alt="Tavaszi Máté" width="80" height="80"
+                                class="rounded-circle mb-3 team-avatar">
+                            <h6 class="fw-semibold mb-1">Tavaszi Máté</h6>
+                            <div class="text-muted mb-2 small">Senior rendszermérnök</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="team-card bg-light rounded shadow-sm p-4 h-100 text-center">
+                            <img src="./team-zeller.jpg" alt="Zeller Ákos" width="80" height="80"
+                                class="rounded-circle mb-3 team-avatar">
+                            <h6 class="fw-semibold mb-1">Zeller Ákos</h6>
+                            <div class="text-muted mb-2 small">Senior rendszermérnök</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-center mt-4">
+                    <span class="text-muted small">A csapatunk minden tagja elkötelezett a folyamatos fejlődés és az
+                        ügyfelek maximális támogatása mellett.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vélemények / Ügyfélidézetek szekció -->
+        <section id="testimonials" class="py-5 glass-gray">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Ügyfeleink mondták</h2>
+                    <p class="lead text-muted">Gyorsaság, szakértelem, segítőkészség – nem mi mondjuk, hanem ügyfeleink!
+                    </p>
+                </div>
+
+                <!-- Interaktív végtelen görgetésű ajánlások -->
+                <div class="testimonials-container" id="testimonialsContainer">
+                    <div class="testimonials-track" id="testimonialsTrack">
+                        <!-- Első ajánlás -->
+                        <div class="testimonial-card bg-white rounded shadow-sm p-4 glass">
+                            <div class="mb-2 text-center">
+                                <span class="star-rating" aria-label="5 csillag">⭐️⭐️⭐️⭐️⭐️</span>
+                            </div>
+                            <blockquote class="mb-3 fst-italic">
+                                Teams belépési probléma volt, de ti mint mindig, most is szuper gyorsan elhárítottátok a
+                                hibát! Köszönet érte!
+                            </blockquote>
+                            <div class="text-end text-muted small">– ügyfél visszajelzés</div>
+                        </div>
+
+                        <!-- Második ajánlás -->
+                        <div class="testimonial-card bg-white rounded shadow-sm p-4 glass">
+                            <div class="mb-2 text-center">
+                                <span class="star-rating" aria-label="5 csillag">⭐️⭐️⭐️⭐️⭐️</span>
+                            </div>
+                            <blockquote class="mb-3 fst-italic">
+                                Ti vagytok a legjobbak. Kedvesek, segítőkészek, türelmesek vagytok, mindent megoldotok.
+                                Köszönöm!
+                            </blockquote>
+                            <div class="text-end text-muted small">– ügyfél visszajelzés</div>
+                        </div>
+
+                        <!-- Harmadik ajánlás -->
+                        <div class="testimonial-card bg-white rounded shadow-sm p-4 glass">
+                            <div class="mb-2 text-center">
+                                <span class="star-rating" aria-label="5 csillag">⭐️⭐️⭐️⭐️⭐️</span>
+                            </div>
+                            <blockquote class="mb-3 fst-italic">
+                                Gyors, precíz munka – mindig elégedett vagyok veletek!
+                            </blockquote>
+                            <div class="text-end text-muted small">– ügyfél visszajelzés</div>
+                        </div>
+
+                        <!-- Negyedik ajánlás -->
+                        <div class="testimonial-card bg-white rounded shadow-sm p-4 glass">
+                            <div class="mb-2 text-center">
+                                <span class="star-rating" aria-label="5 csillag">⭐️⭐️⭐️⭐️</span>
+                            </div>
+                            <blockquote class="mb-3 fst-italic">
+                                A szerver leállt péntek este! Profi csapat!
+                            </blockquote>
+                            <div class="text-end text-muted small">– ügyfél visszajelzés</div>
+                        </div>
+
+                        <!-- Ötödik ajánlás -->
+                        <div class="testimonial-card bg-white rounded shadow-sm p-4 glass">
+                            <div class="mb-2 text-center">
+                                <span class="star-rating" aria-label="5 csillag">⭐️⭐️⭐️⭐️⭐️</span>
+                            </div>
+                            <blockquote class="mb-3 fst-italic">
+                                zászló zászló szív (egy szó)
+                            </blockquote>
+                            <div class="text-end text-muted small">– ügyfél visszajelzés</div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <!-- GYIK / Gyakran Ismételt Kérdések szekció -->
+        <section id="faq" class="py-5 bg-secondary bg-gradient">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3 text-white">Gyakran Ismételt Kérdések</h2>
+                    <p class="lead text-whi">Összegyűjtöttük a leggyakoribb kérdéseket, hogy gyorsan megtaláld a
+                        választ.</p>
+                </div>
+                <div class="accordion accordion-flush" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq1-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                Milyen gyorsan reagáltok hibabejelentés esetén?
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faq1-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Átlagosan 1 órán belül felvesszük a kapcsolatot, sürgős esetben azonnal intézkedünk.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq2-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                Milyen cégeknek ajánljátok a szolgáltatásaitokat?
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Kisvállalatoktól a 100+ fős középvállalatokig minden olyan cégnek, amelynek fontos a
+                                stabil, biztonságos informatikai háttér.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq3-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                Milyen technológiákkal dolgoztok?
+                            </button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Microsoft, Linux, Cisco, Dell, Lenovo, AWS, Azure – és minden, ami modern IT megoldás.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq4-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                Vállaltok hardver- vagy szoftverbeszerzést is?
+                            </button>
+                        </h3>
+                        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Igen, teljes körű hardver- és szoftverbeszerzést is biztosítunk ügyfeleinknek.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq5-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                Van lehetőség távoli segítségnyújtásra?
+                            </button>
+                        </h3>
+                        <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Igen, a legtöbb problémát gyorsan, távolról is meg tudjuk oldani.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq6-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                                Hogyan lehet ajánlatot kérni?
+                            </button>
+                        </h3>
+                        <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Egyszerűen töltsd ki a kapcsolatfelvételi űrlapot vagy írj e-mailt, és rövid időn belül
+                                felvesszük veled a kapcsolatot.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq7-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
+                                Mennyibe kerülnek a szolgáltatások?
+                            </button>
+                        </h3>
+                        <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faq7-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Minden ügyfelünknek egyedi ajánlatot készítünk, az igények és a rendszer összetettsége
+                                alapján.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq8-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
+                                Miért érdemes titeket választani?
+                            </button>
+                        </h3>
+                        <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faq8-heading"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Gyorsak, precízek és megbízhatóak vagyunk, kiválóan kommunikálunk, és minden
+                                IT-problémára megoldást találunk.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kapcsolat szekció -->
+        <section id="contact" class="py-5 glass-gray">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Lépj velünk kapcsolatba!</h2>
+                    <p class="lead text-muted">Írj nekünk, és rövid időn belül válaszolunk. Vagy keress minket
+                        közvetlenül az alábbi elérhetőségeken!</p>
+                </div>
+                <div class="row g-5 align-items-start">
+                    <div class="col-lg-6">
+                        <form action="mailto:support@damocles.hu" method="post" enctype="text/plain"
+                            class="contact-form shadow-sm p-4 rounded glass">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Név*</label>
+                                <input type="text" class="form-control border-1 border-secondary" id="name" name="name"
+                                    placeholder="Add meg a neved" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail cím*</label>
+                                <input type="email" class="form-control border-1 border-secondary" id="email"
+                                    name="email" placeholder="Add meg az e-mail címed" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Üzenet*</label>
+                                <textarea class="form-control border-1 border-secondary" id="message" name="message"
+                                    rows="4" placeholder="Írd le, miben segíthetünk!" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-brand btn-lg w-100 dynamic-btn">Küldés</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-info bg-light rounded shadow-sm p-4 h-100 glass">
+                            <h5 class="mb-3">Elérhetőségeink</h5>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <strong>Irodánk:</strong><br>
+                                    1026 Budapest, Riadó utca 5.
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Telefon:</strong><br>
+                                    <a href="tel:+36706697085" class="text-decoration-none text-dark">+36 70 669
+                                        7085</a>
+                                </li>
+                                <li class="mb-2">
+                                    <strong>E-mail:</strong><br>
+                                    <a href="mailto:info@damocles.hu"
+                                        class="text-decoration-none text-dark">support@damocles.hu</a>
+                                </li>
+                            </ul>
+                            <div>
+                                <strong>Nyitvatartás:</strong><br>
+                                H–P: 9:00–17:00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-dark text-white py-5">
+            <div class="container">
+                <div class="row g-lg-3">
+                    <!-- Cég információk -->
+                    <div class="col-lg-3 col-md-6">
+                        <img src="./damocles-light.png" alt="Damocles" class="mb-3" style="max-height: 40px;">
+                        <p class="small text-white">IT üzemeltetés, tanácsadás és kereskedelem - egy helyen.</p>
+                        <div class="small text-white">
+                            <div><i class="bi bi-geo-alt me-2"></i>1026 Budapest, Riadó utca 5.</div>
+                            <div><i class="bi bi-telephone me-2"></i>+36 70 669 7085</div>
+                            <div><i class="bi bi-envelope me-2"></i>support@damocles.hu</div>
+                        </div>
+                    </div>
+
+                    <!-- Szolgáltatások -->
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="fw-bold mb-3 text-white">Szolgáltatások</h6>
+                        <ul class="list-unstyled small">
+                            <li><a href="#services" class="text-white text-decoration-none">Szerver üzemeltetés</a></li>
+                            <li><a href="#services" class="text-white text-decoration-none">Hálózat felügyelet</a></li>
+                            <li><a href="#services" class="text-white text-decoration-none">IT támogatás</a></li>
+                            <li><a href="#services" class="text-white text-decoration-none">Hardver beszerzés</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Támogatás -->
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="fw-bold mb-3 text-white">Támogatás</h6>
+                        <ul class="list-unstyled small">
+                            <li><a href="#faq" class="text-white text-decoration-none">GYIK</a></li>
+                            <li><a href="https://get.teamviewer.com/damocles"
+                                    class="text-white text-decoration-none">TeamViewer</a></li>
+                            <li><a href="https://damocles.hu/jira" class="text-white text-decoration-none">Hibajegy</a>
+                            </li>
+                            <li><a href="#contact" class="text-white text-decoration-none">Kapcsolat</a></li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Térkép szekció -->
+
+                    <div class="col-lg-5 col-md-6">
+                        <h6 class="fw-bold mb-3 text-white">Irodánk helye</h6>
+                        <div class="ratio ratio-21x9">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.8447437067!2d19.02534577654321!3d47.51234997917845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc1234567890%3A0x1234567890abcdef!2sBudapest%2C%20Riad%C3%B3%20u.%205%2C%201026!5e0!3m2!1shu!2shu!4v1234567890123!5m2!1shu!2shu"
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="my-4 border-secondary">
+
+                <!-- Alsó sor -->
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <p class="text-white text-center mb-0">
+                            &copy; 2025 Damocles Kft. – Minden jog fenntartva.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </header>
+    <!-- A további szekciók (szolgáltatások, miért minket, ügyfelek, vélemények, csapat, GYIK, kapcsolat) itt fognak következni... -->
+
+    <!-- Bootstrap 5 JS (opcionális, ha lesznek interaktív elemek) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        // Ellenőrzi, hogy az elem a viewportban van-e
+        function isInViewport(element) {
+            var elementTop = $(element).offset().top;
+            var elementBottom = elementTop + $(element).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        }
+
+        var counterAnimated = false;
+
+        $(window).on('scroll resize', function () {
+            $('.counter').each(function () {
+                if (isInViewport(this) && !$(this).data('animated')) {
+                    $(this).data('animated', true);
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).text()
+                    }, {
+                        duration: 1500,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(Math.ceil(now));
+                        }
+                    });
+                }
+            });
+        });
+
+        // Ha az oldal betöltésekor már látható az elem, akkor is elindítjuk
+        $(document).ready(function () {
+            $(window).trigger('scroll');
+        });
+
+        function animateOnVisible(className) {
+            const elements = document.querySelectorAll(`.${className}`);
+
+            // Alapértelmezett CSS osztály hozzáadása az elemekhez az induló állapothoz
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            });
+
+            // Intersection Observer létrehozása
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        // Animáció alkalmazása: áttűnés és felfelé mozgás
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                        // Miután animáltuk, nem kell tovább figyelni az elemet
+                        observer.unobserve(el);
+                    }
+                });
+            }, {
+                threshold: 0.01 // Akkor aktiválódik, ha az elem legalább 1%-ban látható
+            });
+
+            // Megfigyelés indítása minden elemre
+            elements.forEach(el => observer.observe(el));
+        }
+
+
+        function animateOnVisibleStaggered(className, delayStep = 150) {
+            const elements = Array.from(document.querySelectorAll(`.${className}`));
+
+            // Alapértelmezett stílus beállítása
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            });
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries, observer) => {
+                // Ha bármelyik elem láthatóvá válik, minden elem animációját elindítjuk, késleltetve
+                if (entries.some(entry => entry.isIntersecting)) {
+                    elements.forEach((el, i) => {
+                        setTimeout(() => {
+                            el.style.opacity = '1';
+                            el.style.transform = 'translateY(0)';
+                        }, i * delayStep);
+                    });
+                    // Megfigyelés leállítása
+                    elements.forEach(el => observer.unobserve(el));
+                }
+            }, { threshold: 0.3 });
+
+            // Figyelés indítása csak az első elemre (hogy egyszerre induljon minden)
+            if (elements.length) observer.observe(elements[0]);
+        }
+
+        animateOnVisibleStaggered('why-card', 50);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('testimonialsContainer');
+            const track = document.getElementById('testimonialsTrack');
+
+            if (!container || !track) return;
+
+            let currentPosition = 0;
+            let targetSpeed = 0;
+            let currentSpeed = 0;
+            let animationId = null;
+            let isMouseInside = false;
+
+            // Eredeti kártyák
+            const originalCards = Array.from(track.children);
+            const cardWidth = 350 + 32; // kártya + gap
+            const totalOriginalWidth = originalCards.length * cardWidth;
+
+            // Duplikáljuk a kártyákat háromszor a seamless loophoz
+            function setupInfiniteLoop() {
+                // Töröljük a meglévő klónokat
+                track.innerHTML = '';
+
+                // Hozzáadjuk az eredeti kártyákat háromszor
+                for (let i = 0; i < 3; i++) {
+                    originalCards.forEach(card => {
+                        const clone = card.cloneNode(true);
+                        track.appendChild(clone);
+                    });
+                }
+
+                // Kezdő pozíció a középső szett elejére
+                currentPosition = -totalOriginalWidth;
+                track.style.transform = `translateX(${currentPosition}px)`;
+            }
+
+            function updatePosition() {
+                // Smooth interpolation
+                currentSpeed += (targetSpeed - currentSpeed) * 0.08;
+
+                if (Math.abs(currentSpeed) > 0.01) {
+                    currentPosition += currentSpeed;
+
+                    // Seamless loop logic - nincs hirtelen ugrás
+                    if (currentPosition <= -totalOriginalWidth * 2) {
+                        // Ha túl messze mentünk jobbra, visszatérünk a középső szetthez
+                        currentPosition += totalOriginalWidth;
+                    } else if (currentPosition >= 0) {
+                        // Ha túl messze mentünk balra, visszatérünk a középső szetthez
+                        currentPosition -= totalOriginalWidth;
+                    }
+
+                    track.style.transform = `translateX(${currentPosition}px)`;
+                }
+            }
+
+            function animate() {
+                updatePosition();
+
+                if (Math.abs(currentSpeed) > 0.01 || targetSpeed !== 0) {
+                    animationId = requestAnimationFrame(animate);
+                } else {
+                    animationId = null;
+                }
+            }
+
+            function startAnimation() {
+                if (!animationId) {
+                    animationId = requestAnimationFrame(animate);
+                }
+            }
+
+            function setSpeed(speed) {
+                targetSpeed = speed;
+                startAnimation();
+            }
+
+            // Egér események
+            let mouseMoveTimeout;
+
+            container.addEventListener('mouseenter', function () {
+                isMouseInside = true;
+            });
+
+            container.addEventListener('mouseleave', function () {
+                isMouseInside = false;
+                setSpeed(-1); // Alapértelmezett jobbra mozgás
+            });
+
+            container.addEventListener('mousemove', function (e) {
+                if (!isMouseInside) return;
+
+                clearTimeout(mouseMoveTimeout);
+                mouseMoveTimeout = setTimeout(() => {
+                    const rect = container.getBoundingClientRect();
+                    const mouseX = e.clientX - rect.left;
+                    const containerWidth = rect.width;
+                    const centerZone = containerWidth * 0.4; // 40% középső zóna
+                    const leftZone = (containerWidth - centerZone) / 2;
+                    const rightZone = leftZone + centerZone;
+
+                    if (mouseX < leftZone) {
+                        // Bal oldal - balra mozgás
+                        const intensity = Math.min((leftZone - mouseX) / leftZone, 1);
+                        setSpeed(intensity * 3);
+                    } else if (mouseX > rightZone) {
+                        // Jobb oldal - jobbra mozgás
+                        const intensity = Math.min((mouseX - rightZone) / leftZone, 1);
+                        setSpeed(-intensity * 3);
+                    } else {
+                        // Középen megáll
+                        setSpeed(0);
+                    }
+                }, 16);
+            });
+
+            // Inicializálás
+            setupInfiniteLoop();
+            setSpeed(-1);
+
+            // Cleanup
+            window.addEventListener('beforeunload', function () {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const icon = document.querySelector('.navbar-toggler-icon-custom');
+
+            navbarToggler.addEventListener('click', function () {
+                // Kis késleltetés a Bootstrap animáció szinkronizálásához
+                setTimeout(() => {
+                    const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+                    if (isExpanded) {
+                        icon.style.transform = 'rotate(90deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                }, 50);
+            });
+        });
+
+        // Laptop screen typing animation
+        document.addEventListener('DOMContentLoaded', function () {
+            const screenText = document.getElementById('screenText');
+
+            if (!screenText) return;
+
+            const messages = [
+                "Hálózat stabil.",
+                "Rendszer naprakész.",
+                "Védelem aktív.",
+                "Támogatás online.",
+                "VPN kapcsolódás..."
+            ];
+
+            let currentMessageIndex = 0;
+            let currentCharIndex = 0;
+            let isDeleting = false;
+            let isPaused = false;
+
+            function typeWriter() {
+                const currentMessage = messages[currentMessageIndex];
+
+                if (!isDeleting && !isPaused) {
+                    // Typing
+                    if (currentCharIndex < currentMessage.length) {
+                        const char = currentMessage.charAt(currentCharIndex);
+
+                        // Space karakter esetén &nbsp; használata
+                        const displayChar = char === ' ' ? '&nbsp;' : char;
+
+                        const span = document.createElement('span');
+                        span.className = 'typing-char';
+                        span.innerHTML = displayChar; // innerHTML használata &nbsp; miatt
+
+                        screenText.appendChild(span);
+                        currentCharIndex++;
+
+                        // Space esetén gyorsabb typing
+                        const delay = char === ' ' ? 50 : 100;
+                        setTimeout(typeWriter, delay);
+                    } else {
+                        // Message complete, pause before deleting
+                        isPaused = true;
+                        setTimeout(() => {
+                            isPaused = false;
+                            isDeleting = true;
+                            typeWriter();
+                        }, 2000); // Pause duration
+                    }
+                } else if (isDeleting && !isPaused) {
+                    // Deleting
+                    if (currentCharIndex > 0) {
+                        const chars = screenText.querySelectorAll('.typing-char');
+                        if (chars.length > 0) {
+                            screenText.removeChild(chars[chars.length - 1]);
+                        }
+                        currentCharIndex--;
+
+                        setTimeout(typeWriter, 50); // Delete speed
+                    } else {
+                        // Deletion complete, move to next message
+                        isDeleting = false;
+                        currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+
+                        setTimeout(typeWriter, 500); // Pause before next message
+                    }
+                }
+
+                // Add cursor
+                const existingCursor = screenText.querySelector('.cursor');
+                if (existingCursor) {
+                    existingCursor.remove();
+                }
+
+                const cursor = document.createElement('span');
+                cursor.className = 'cursor';
+                screenText.appendChild(cursor);
+            }
+
+            // Start the animation
+            setTimeout(typeWriter, 1000); // Initial delay
+        });
+
+
+        function throttle(func, limit) {
+            let inThrottle;
+            return function () {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const heroElement = document.querySelector('.hero-bg');
+
+            // Helyes CSS transition szintaxis
+            heroElement.style.transition = 'background-position-y 0.3s ease-out';
+
+            const handleMouseMove = throttle(function (e) {
+                let mouseY = e.clientY;
+                let windowHeight = window.innerHeight;
+
+                // Egér pozíció százalékban (0-100%)
+                let mousePercentY = (mouseY / windowHeight) * 100;
+
+                // Background position Y használata
+                heroElement.style.backgroundPositionY = `${mousePercentY}%`;
+            }, 16);
+
+            document.addEventListener('mousemove', handleMouseMove);
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const serviceCards = document.querySelectorAll('.service-card');
+            let activeCard = null;
+
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Ha ugyanarra a kártyára kattintunk, zárjuk be
+                    if (activeCard === this) {
+                        closeCard(this);
+                        activeCard = null;
+                        return;
+                    }
+
+                    // Ha van aktív kártya, zárjuk be
+                    if (activeCard) {
+                        closeCard(activeCard);
+                    }
+
+                    // Nyissuk meg az új kártyát
+                    openCard(this);
+                    activeCard = this;
+                });
+            });
+
+            function openCard(card) {
+                // Animáció késleltetéssel a smooth effektért
+                setTimeout(() => {
+                    card.classList.add('expanded');
+                }, 10);
+
+                // Smooth scroll a kártyához
+                setTimeout(() => {
+                    card.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }, 100);
+            }
+
+            function closeCard(card) {
+                setTimeout(() => {
+                    card.classList.remove('expanded');
+                }, 250);
+            }
+
+            // ESC billentyűvel bezárás
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && activeCard) {
+                    closeCard(activeCard);
+                    activeCard = null;
+                }
+            });
+
+            // Kívülre kattintással bezárás (opcionális)
+            document.addEventListener('click', function (e) {
+                if (activeCard && !activeCard.contains(e.target)) {
+                    closeCard(activeCard);
+                    activeCard = null;
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
